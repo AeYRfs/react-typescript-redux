@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(to bottom right, #f0f4ff, #dceaff);
+  color: #2c2c2c;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #ffffffd8;
+  border-top: 1px solid #d0d0d0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  z-index: 2;
+  height: 64px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #1d3f72;
+}
+
+.nav {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.nav button {
+  padding: 0.5rem 1.2rem;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #1d3f72;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav button:hover {
+  background-color: #e6f0ff;
+  border-color: #99c2ff;
+  transform: translateY(-1px);
+}
+
+.nav button:active {
+  background-color: #cce0ff;
+  transform: scale(0.98);
+}
+
+.menu-button {
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  color: #1d3f72;
+  transition: transform 0.2s ease;
+}
+
+.menu-button:hover {
+  transform: scale(1.15);
+}
+
+@media (max-width: 600px) {
+  .nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.modal-slideout {
+  background: #ffffff;
+  width: 250px;
+  max-width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  position: relative;
+  transform: translateX(100%);
+  animation: slideIn 0.3s forwards;
+  border-top-left-radius: 12px;
+}
+
+.modal-slideout.closing {
+  animation: slideOut 0.3s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
