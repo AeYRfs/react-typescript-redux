@@ -16,7 +16,7 @@ const Header: React.FC = () => {
   return (
     <>
       <header className="header">
-        <h1>Мой сайт</h1>
+        <h1>fz125zet</h1>
 
         <nav className="nav">
           <button onClick={() => handleNavigation('home')}>Главная</button>

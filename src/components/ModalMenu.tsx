@@ -6,11 +6,7 @@ interface ModalMenuProps {
 }
 
 const ModalMenu: React.FC<ModalMenuProps> = ({ onClose, children }) => {
-  const [isClosing, setIsClosing] = useState(false);
-
-  const handleClose = () => {
-    setIsClosing(true);
-  };
+  const [isClosing] = useState(false);
 
   useEffect(() => {
     if (isClosing) {
@@ -22,13 +18,10 @@ const ModalMenu: React.FC<ModalMenuProps> = ({ onClose, children }) => {
   }, [isClosing, onClose]);
 
   return (
-    <div className="modal-overlay" onClick={handleClose}>
-      <div
-        className={`modal-slideout ${isClosing ? 'closing' : ''}`}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {children}
-      </div>
+    <div
+      className={`modal-slideout ${isClosing ? 'closing' : ''}`}
+    >
+      {children}
     </div>
   );
 };
